@@ -1,0 +1,49 @@
+{
+  "cases": [
+    {
+      "id": "G01",
+      "desc": "G01 声明的自检条数与实跑一致 → OK",
+      "result": "PASS"
+    },
+    {
+      "id": "G02",
+      "desc": "G02 声明的 2/2 实际只有 1/2 → MISMATCH 且退出码 1",
+      "result": "PASS"
+    },
+    {
+      "id": "G03",
+      "desc": "G03 文件数声明与真实文件数一致 → OK",
+      "result": "PASS"
+    },
+    {
+      "id": "G04",
+      "desc": "G04 文件数声明偏大 → MISMATCH",
+      "result": "PASS"
+    },
+    {
+      "id": "G05",
+      "desc": "G05 声明的 references/ 路径不存在 → MISMATCH",
+      "result": "PASS"
+    },
+    {
+      "id": "G06",
+      "desc": "G06 正文举例里的路径不算声明 → 不产生 MISMATCH",
+      "result": "PASS"
+    },
+    {
+      "id": "G07",
+      "desc": "G07 有自检声明但没有 runner → UNVERIFIABLE，默认不算失败",
+      "result": "PASS"
+    },
+    {
+      "id": "G08",
+      "desc": "G08 加 --strict 后 UNVERIFIABLE 也算失败",
+      "result": "PASS"
+    },
+    {
+      "id": "G09",
+      "desc": "G09 list 只列不跑；根目录不存在时退出码 2",
+      "result": "PASS"
+    }
+  ]
+}
