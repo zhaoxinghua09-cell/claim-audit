@@ -1,0 +1,32 @@
+name: verify
+
+# 与评测器同一套原则：只在作者机器上跑过的数字不算验证。
+# 这里断言的是 claim-audit 自己的两个公开说法：黄金用例全过、对自己的文档零误报零漏报。
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python version
+        run: python3 --version
+
+      - name: Assert golden cases all pass
+        run: |
+          python3 tests/run_golden.py | tee /tmp/g.txt
+          grep -q "PASS ----" /tmp/g.txt
+          grep -qv "FAIL  " /tmp/g.txt
+
+      - name: Assert demo runs
+        run: python3 demo/run_demo.py
+
+      - name: Assert zero mismatch on this package's own docs
+        run: |
+          python3 scripts/audit.py check . | tee /tmp/a.txt
+          grep -q "对不上 0" /tmp/a.txt
