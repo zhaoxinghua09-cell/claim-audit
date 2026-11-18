@@ -1,17 +1,18 @@
 ---
 name: claim-audit
-display_name: Claim Audit
-display_name_zh: 声明审计
 description: Use when a skill package, README or report states numbers such as "9/9 PASS", "N files", "100/100" or file paths, and you need to know whether those numbers were actually produced by running the code. Re-runs the package's own test runner, counts real files, re-scores with the reviewer, and checks declared paths exist. Read-only, never edits the document.
-description_zh: 当技能包、README 或报告里写了「9/9 PASS」「N 个文件」「100/100」或某个文件路径，需要确认这些数字是不是真跑出来的，用本技能。它重跑包自带的自检、数真实文件、复跑评测器、核对声明的路径是否存在；只读，不改文档。
-version: 1.0.0
 license: MIT
-author: zhaoxinghua09-cell
-tags:
-- audit
-- claims
-- verification
-- evidence
+metadata:
+  display_name: Claim Audit
+  display_name_zh: 声明审计
+  description_zh: 当技能包、README 或报告里写了「9/9 PASS」「N 个文件」「100/100」或某个文件路径，需要确认这些数字是不是真跑出来的，用本技能。它重跑包自带的自检、数真实文件、复跑评测器、核对声明的路径是否存在；只读，不改文档。
+  version: 1.0.0
+  author: zhaoxinghua09-cell
+  tags:
+  - audit
+  - claims
+  - verification
+  - evidence
 ---
 
 # Claim Audit · 把文档里的数字拉回去重跑一遍
